@@ -50,12 +50,12 @@ def rotate_piece(piece, direction):
 # print(rotate_piece(rotate_piece(pieces[1], "LEFT"), "LEFT"))
 
 class Board():
-    def __init__(self, x, y):
+    def __init__(self):
         self.matrix = []
         for i in range(y):
             self.matrix.append([0] * x)
-        self.x = x
-        self.y = y
+        self.x = 8
+        self.y = 8
     
     def place(self, piece, x, y, color):
         for iy in range(len(piece)):
