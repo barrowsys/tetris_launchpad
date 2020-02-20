@@ -32,6 +32,8 @@ class InputHandler():
                     return "C3"
                 elif msg.control == 108:
                     return "C4"
+            elif msg.type == "note_on" and msg.note % 10 == 9:
+                return "SPEED_" + str((msg.note - 9)//10)
         return None
 
 if __name__ == "__main__":

@@ -36,6 +36,7 @@ tick = 0
 x = 0
 y = 0
 c = 0
+speed = 1
 
 def gen_matrix():
     matrix = copy.deepcopy(board.matrix)
@@ -59,10 +60,10 @@ while not board.finished():
     # print(board.finished())
     time.sleep(1/15)
     tick += 1
-    renderer.render(gen_matrix())
+    renderer.render(gen_matrix(), speed)
     command = input_handler.poll()
     board.clearRows()
-    if tick % 15 == 0:
+    if tick % (15- speed) == 0:
         y += 1
         print(y)
         if board.collides(current_piece, x, y):
@@ -98,5 +99,8 @@ while not board.finished():
             choose_piece()
             x = 0
             y = 0
+        elif "SPEED" in command:
+            speed = int(command[6:])
+            print("SPEED", speed)
     c = (c + 1) % 128
     
