@@ -59,7 +59,7 @@ while not board.finished():
     # print(board.finished())
     time.sleep(1/15)
     tick += 1
-    renderer.render([[0]* 8] + gen_matrix() + [[0]* 8])
+    renderer.render(gen_matrix())
     command = input_handler.poll()
     board.clearRows()
     if tick % 15 == 0:
