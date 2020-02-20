@@ -75,9 +75,10 @@ class Board():
                 return "OOB"
             for iy in range(len(piece)):
                 for ix in range(0, len(piece[0])):
-                    if ((y - iy) >= len(self.matrix)) or ((x + ix) >= len(self.matrix[y - iy])):
+                    if ((y - iy) >= len(self.matrix)) or ((x + ix) >= len(self.matrix[y - iy])) or ((y - iy) < 0):
                         continue
                     elif piece[iy][ix] == 1 and self.matrix[y - iy][x + ix] > 0:
+                        print(ix, iy, x + ix, y - iy)
                         return True
         except IndexError as e:
             pass
