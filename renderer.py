@@ -42,5 +42,3 @@ class Renderer():
     def render(self, matrix, speed):
         msg = make_message(matrix, speed)
         self.port.send(msg)
-
-print(pos_to_note(0, 9))
